@@ -1,0 +1,2 @@
+module FavoentryHelper
+end

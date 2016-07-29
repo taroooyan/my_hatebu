@@ -1,0 +1,12 @@
+<h1>エントリー一覧</h1>
+<%# @entries = {:title, :link, :creator, :date, :tag, :head_text} %>
+<% @entries.each do |entry| %>
+  <ul>
+    <li><%= link_to entry["title"], entry["link"] %></li>
+    <li><%= entry["head_text"] %></li>
+    <li><%= entry["tag"] %></li>
+    <li><%= entry["creator"] %></li>
+    <li><%= entry["date"] %></li>
+  </ul>
+  <br>
+<% end %>
