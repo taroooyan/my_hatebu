@@ -1,11 +1,6 @@
 <h1>エントリー一覧</h1>
 <%# @entries = {:title, :link, :creator, :date, :tag, :head_text} %>
-<% @entries.each do |entry| %>
-  <ul>
-    <li><%= link_to entry[:title], entry[:link], :target=>["_blank"] %></li>
-    <li><%= entry[:head_text] %></li>
-    <li><%= entry[:creator] %></li>
-    <li><%= entry[:date] %></li>
-  </ul>
-  <br>
-<% end %>
+
+<%= render :partial => "entry_list" %>
+<%= button_to "more",  {:action => "add_show_entry"}, {:remote => true} %>
+<div id="last"></div>

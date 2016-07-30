@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'login'     => 'users#login'
   get 'register'  => 'users#session_register'
   get 'favoentry' => 'favoentry#show'
+  post 'favoentry/add_show_entry'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

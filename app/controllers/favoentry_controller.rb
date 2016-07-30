@@ -38,4 +38,9 @@ class FavoentryController < ApplicationController
       return entries
     end
   end
+
+  def add_show_entry
+    @entries = get_entry()
+    render
+  end
 end
