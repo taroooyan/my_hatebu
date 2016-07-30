@@ -23,11 +23,12 @@ class FavoentryController < ApplicationController
       last_entry_date = ""
       rss.items.each do |item|
         entry = Hash.new
-        entry[:title]   = item.title
-        entry[:link]    = item.link
-        entry[:creator] = item.dc_creator
-        entry[:date]    = last_entry_date = item.dc_date.strftime("%Y-%m-%d %H:%M:%S")
-        entry[:tag]     = item.dc_subject
+        entry[:title]       = item.title
+        entry[:link]        = item.link
+        entry[:description] = item.description
+        entry[:creator]     = item.dc_creator
+        entry[:date]        = last_entry_date = item.dc_date.strftime("%Y-%m-%d %H:%M:%S")
+        entry[:tag]         = item.dc_subject
         # This code is bad. There is a better way than it.
         entry[:head_text] = item.content_encoded.match(/<p>([^<]+?)<\/p>/).to_s.delete("</p>").delete("<p>")
 
@@ -40,7 +41,8 @@ class FavoentryController < ApplicationController
   end
 
   def add_show_entry
-    @entries = get_entry()
+    user = User.find_by(cert: session[:cert])
+    @entries = get_entry(Time.parse(user[:last_entry_date]).to_i)
     render
   end
 end

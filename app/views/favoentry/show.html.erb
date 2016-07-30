@@ -2,5 +2,6 @@
 <%# @entries = {:title, :link, :creator, :date, :tag, :head_text} %>
 
 <%= render :partial => "entry_list" %>
-<%= button_to "more",  {:action => "add_show_entry"}, {:remote => true} %>
-<div id="last"></div>
+<div id="more"></div>
+
+<%= button_to "もっと読み込む",  {:action => "add_show_entry"}, {:remote => true} %> 
