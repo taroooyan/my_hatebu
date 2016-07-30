@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160730042214) do
     t.string   "image_url"
     t.string   "thumbnail_url"
     t.string   "cert"
-    t.string   "last_entry_time"
+    t.string   "last_entry_date"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

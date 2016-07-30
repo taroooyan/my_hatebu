@@ -2,10 +2,10 @@
 <%# @entries = {:title, :link, :creator, :date, :tag, :head_text} %>
 <% @entries.each do |entry| %>
   <ul>
-    <li><%= link_to entry["title"], entry["link"], :target=>["_blank"] %></li>
-    <li><%= entry["head_text"] %></li>
-    <li><%= entry["creator"] %></li>
-    <li><%= entry["date"] %></li>
+    <li><%= link_to entry[:title], entry[:link], :target=>["_blank"] %></li>
+    <li><%= entry[:head_text] %></li>
+    <li><%= entry[:creator] %></li>
+    <li><%= entry[:date] %></li>
   </ul>
   <br>
 <% end %>
