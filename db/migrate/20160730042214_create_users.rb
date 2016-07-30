@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :image_url
       t.string :thumbnail_url
+      t.string :cert
       t.string :last_entry_time
 
       t.timestamps null: false
