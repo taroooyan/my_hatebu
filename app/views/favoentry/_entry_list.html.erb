@@ -1,12 +1,12 @@
 <%# @entries = {:title, :link, :description, :creator, :date, :tag, :head_text} %>
 <div class="row">
     <% @entries.each do |entry| %>
-      <div class="col-sm-3">
+      <div class="col-sm-3 entry-card">
       <ul>
         <li><%= link_to entry[:title], entry[:link], :target=>["_blank"] %></li>
-        <li><%= entry[:head_text] %></li>
+        <li><%= truncate(entry[:head_text], length: 40) %></li>
         <li><%= entry[:creator] %></li>
-        <li><%= entry[:description] %></li>
+        <li><%= truncate(entry[:description], length: 35) %></li>
         <li><%= entry[:date] %></li>
       </ul>
     </div>
