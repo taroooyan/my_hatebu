@@ -1,13 +1,24 @@
-<%# @entries = {:title, :link, :description, :creator, :date, :tag, :head_text} %>
+<%# @entries = {:title, :link, :description, :creator, :date, :tags, :head_text, :favicon, :entry_img} %>
 <div class="row">
     <% @entries.each do |entry| %>
       <div class="col-sm-3 entry-card">
-      <ul>
-        <li><%= link_to entry[:title], entry[:link], :target=>["_blank"] %></li>
-        <li><%= truncate(entry[:head_text], length: 40) %></li>
-        <li><%= entry[:creator] %></li>
-        <li><%= truncate(entry[:description], length: 35) %></li>
-        <li><%= entry[:date] %></li>
+        <div class="entry-title">
+        <%= image_tag(entry[:favicon]) %>
+        <%= link_to truncate(entry[:title], length:45), entry[:link], :target=>["_blank"] %>
+        </div>
+          <div class="entry-img">
+            <%# origina img is 120x90 %>
+          <%= entry[:entry_img] != nil ? image_tag(entry[:entry_img], :size => "210x135") : truncate(entry[:head_text], length: 80) %>
+          </div>
+        <ul>
+          <li><%= entry[:creator] %></li>
+          <li><%= truncate(entry[:description], length: 35) %></li>
+          <li>
+            <% entry[:tags].each do |tag_name| %>
+              <%= tag_name %>
+            <% end %>
+          </li>
+          <li><%= entry[:date] %></li>
       </ul>
     </div>
     <% end %>

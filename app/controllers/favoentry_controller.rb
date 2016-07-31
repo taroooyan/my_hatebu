@@ -28,9 +28,31 @@ class FavoentryController < ApplicationController
         entry[:description] = item.description
         entry[:creator]     = item.dc_creator
         entry[:date]        = last_entry_date = item.dc_date.strftime("%Y-%m-%d %H:%M:%S")
-        entry[:tag]         = item.dc_subject
+        entry[:favicon]   = item.content_encoded.scan(/<img src="(.+?)"/)[0].join
+
         # This code is bad. There is a better way than it.
         entry[:head_text] = item.content_encoded.match(/<p>([^<]+?)<\/p>/).to_s.delete("</p>").delete("<p>")
+
+        # Get img of entry. if site have no img, use something text instead of img
+        # text is displayed by view
+        star_image_url = "http://b.hatena.ne.jp/entry/image/"
+        puts 
+        puts 
+        puts 
+        puts  star_image_url+entry[:link]
+        puts entry[:entry_img]    = item.content_encoded.scan(/<img src="(.+?)"/)[1].join
+        unless star_image_url+entry[:link] == item.content_encoded.scan(/<img src="(.+?)"/)[1].join
+          entry[:entry_img]    = item.content_encoded.scan(/<img src="(.+?)"/)[1].join
+        else entry[:entry_img] = nil
+        end 
+        puts 
+        puts 
+        puts 
+
+        entry[:tags] = []
+        item.dc_subjects.each do |tag|
+          entry[:tags] << tag.content
+        end
 
         entries << entry
       end
