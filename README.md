@@ -1,4 +1,4 @@
-###My Hatena Bookmark
+###My Hatebu
 ## Description
 ## Initialize
 ## Usage
@@ -10,7 +10,7 @@
 はてなのアカウントでの認証を必要としている。
 
 ## 初期設定
-.envにAPIキーと秘密鍵を書く。
+template.envを.envにコピーにAPIキーと秘密鍵を書く。
 
 ## 使い方
 
