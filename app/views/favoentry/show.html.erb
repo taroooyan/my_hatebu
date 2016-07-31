@@ -1,7 +1,16 @@
 <h1>エントリー一覧</h1>
 <%# @entries = {:title, :link, :creator, :date, :tag, :head_text} %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2" style="background-color:red;">Red</div>
 
-<%= render :partial => "entry_list" %>
-<div id="more"></div>
+    <div class="col-sm-8">
+      <%= render :partial => "entry_list" %>
+      <div id="more"></div>
+      <%= button_to "もっと読み込む",  {:action => "add_show_entry"}, {:remote => true} %> 
+    </div>
 
-<%= button_to "もっと読み込む",  {:action => "add_show_entry"}, {:remote => true} %> 
+    <div class="col-sm-2" style="background-color:red;">Red</div>
+  </div>
+</div>
+

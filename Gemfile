@@ -49,3 +49,5 @@ end
 
 gem 'dotenv-rails'
 gem 'activerecord-session_store'
+gem 'less-rails' # Railsでlessを使えるようにする。Bootstrapがlessで書かれているため
+gem 'twitter-bootstrap-rails' # Bootstrapの本体
