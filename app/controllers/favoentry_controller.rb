@@ -12,8 +12,8 @@ class FavoentryController < ApplicationController
   # final_time is unix time
   def get_entry(final_time = Time.now.to_i)
     user = User.find_by(cert: session[:cert])
-    url  = "http://b.hatena.ne.jp/#{user[:name]}/favorite.rss?until=#{final_time}"
 
+    url  = "http://b.hatena.ne.jp/#{user[:name]}/favorite.rss?until=#{final_time}"
     # rss server will check UserAgent. So we need to camouflage UserAgent
     opt = {}
     opt['User-Agent'] = 'Opera/9.80 (Windows NT 5.1)'
@@ -36,9 +36,9 @@ class FavoentryController < ApplicationController
         # Get img of entry. if site have no img, use something text instead of img
         # text is displayed by view
         star_image_url = "http://b.hatena.ne.jp/entry/image/"
-        entry[:entry_img]    = item.content_encoded.scan(/<img src="(.+?)"/)[1].join
+        entry[:entry_img] = item.content_encoded.scan(/<img src="(.+?)"/)[1].join
         unless star_image_url+entry[:link] == item.content_encoded.scan(/<img src="(.+?)"/)[1].join
-          entry[:entry_img]    = item.content_encoded.scan(/<img src="(.+?)"/)[1].join
+          entry[:entry_img] = item.content_encoded.scan(/<img src="(.+?)"/)[1].join
         else entry[:entry_img] = nil
         end 
 
@@ -46,6 +46,15 @@ class FavoentryController < ApplicationController
         item.dc_subjects.each do |tag|
           entry[:tags] << tag.content
         end
+
+        # get bookmark count
+        puts
+        puts
+        count_api_url = "http://api.b.st-hatena.com/entry.count?url="
+        open(count_api_url+entry[:link]) {|count| entry[:bookmarkcount] = count}
+        puts entry[:bookmarkcount].to_i
+        puts
+        puts
 
         entries << entry
       end
