@@ -36,18 +36,11 @@ class FavoentryController < ApplicationController
         # Get img of entry. if site have no img, use something text instead of img
         # text is displayed by view
         star_image_url = "http://b.hatena.ne.jp/entry/image/"
-        puts 
-        puts 
-        puts 
-        puts  star_image_url+entry[:link]
-        puts entry[:entry_img]    = item.content_encoded.scan(/<img src="(.+?)"/)[1].join
+        entry[:entry_img]    = item.content_encoded.scan(/<img src="(.+?)"/)[1].join
         unless star_image_url+entry[:link] == item.content_encoded.scan(/<img src="(.+?)"/)[1].join
           entry[:entry_img]    = item.content_encoded.scan(/<img src="(.+?)"/)[1].join
         else entry[:entry_img] = nil
         end 
-        puts 
-        puts 
-        puts 
 
         entry[:tags] = []
         item.dc_subjects.each do |tag|
@@ -56,6 +49,7 @@ class FavoentryController < ApplicationController
 
         entries << entry
       end
+
       user[:last_entry_date] = last_entry_date
       user.save
       return entries
