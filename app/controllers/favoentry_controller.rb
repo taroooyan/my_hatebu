@@ -48,13 +48,8 @@ class FavoentryController < ApplicationController
         end
 
         # get bookmark count
-        puts
-        puts
         count_api_url = "http://api.b.st-hatena.com/entry.count?url="
-        open(count_api_url+entry[:link]) {|count| entry[:bookmarkcount] = count}
-        puts entry[:bookmarkcount].to_i
-        puts
-        puts
+        open(count_api_url+entry[:link]) {|count| entry[:bookmarkcount] = count.read}
 
         entries << entry
       end

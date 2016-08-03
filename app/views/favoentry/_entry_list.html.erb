@@ -1,25 +1,33 @@
-<%# @entries = {:title, :link, :description, :creator, :date, :tags, :head_text, :favicon, :entry_img} %>
+<%# @entries = {:title, :link, :description, :creator, :date, :tags, :head_text, :favicon, :entry_img, :bookmarkcount} %>
 <div class="row">
-    <% @entries.each do |entry| %>
-      <div class="col-sm-3 entry-card">
-        <div class="entry-title">
+  <% @entries.each do |entry| %>
+    <div class="col-sm-3 entry-card">
+      <div class="entry-creator">
+        <%= entry[:creator] %>
+        <%= truncate(entry[:description], length: 20) %>
+      </div>
+      <hr>
+
+      <div class="entry-title">
         <%= image_tag(entry[:favicon]) %>
-        <%= link_to truncate(entry[:title], length:45), entry[:link], :target=>["_blank"] %>
-        </div>
-          <div class="entry-img">
-            <%# origina img is 120x90 %>
-          <%= entry[:entry_img] != nil ? image_tag(entry[:entry_img], :size => "210x135") : truncate(entry[:head_text], length: 80) %>
-          </div>
-        <ul>
-          <li><%= entry[:creator] %></li>
-          <li><%= truncate(entry[:description], length: 35) %></li>
-          <li>
-            <% entry[:tags].each do |tag_name| %>
-              <%= tag_name %>
-            <% end %>
-          </li>
-          <li><%= entry[:date] %></li>
-      </ul>
+        <%= link_to truncate(entry[:title], length: 45), entry[:link], :target=>["_blank"] %>
+      </div>
+
+      <div class="entry-img">
+        <%# origina img is 120x90 %>
+        <%= entry[:entry_img] != nil ? image_tag(entry[:entry_img], :size => "210x135") : truncate(entry[:head_text], length: 80) %>
+      </div>
+
+      <div class="entry-date">
+        <%= entry[:date] %>
+      </div>
+      <hr>
+
+      <div class="entry-tags">
+        <% entry[:tags].each do |tag_name| %>
+          <%= tag_name %>
+        <% end %>
+      </div>
     </div>
-    <% end %>
+  <% end %>
 </div>

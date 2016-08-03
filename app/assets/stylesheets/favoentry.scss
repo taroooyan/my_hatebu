@@ -5,27 +5,47 @@
   width: 300px;
   height: 450px;
   background: #fff;
-  border: medium solid #ccc;
+  border: thin solid #ccc;
+  margin: 15px;
   padding: 15px;
-  margin: 10px 5px;
+}
+
+.entry-creator{
+  width: 270px;
+  height: 50px;
+  // float: initial;
+  padding: 5px, 15px;
 }
 
 .entry-title{
   width: 270px;
-  height: 80px;
+  height: 90px;
+  // float: initial;
+  padding: 15px;
 }
 
 .entry-img{
   width: 270px;
   height: 160px;
+  padding: 15px;
   img{
-    width: 210px;
+    width: 240px;
     height: 135px;
-    margin: 5px 30px;
   }
-  a{
-    width: 270px;
-    height: 100px;
-    margin: 5px 15px;
-  }
+}
+
+ .entry-date{
+  width: 270px;
+  height: 45px;
+  padding: 15px;
+}
+
+.entry-tags{
+  width: 270px;
+  height: 40px;
+  padding: 15px;
+}
+
+hr{
+  margin: 0px;
 }
