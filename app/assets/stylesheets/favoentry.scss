@@ -2,49 +2,63 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .entry-card{
-  width: 300px;
+  width: 310px;
   height: 450px;
   background: #fff;
   border: thin solid #ccc;
-  margin: 15px;
+  margin: 13px;
   padding: 15px;
 }
 
+$entry-content-width: 280px;
+
+.entry-bookmarkcount{
+  width: $entry-content-width;
+  height: 40px;
+  font-size: x-large;
+  color: #0AD;
+  padding: 0px 15px 15px;
+}
 .entry-creator{
-  width: 270px;
-  height: 50px;
+  width: $entry-content-width;
+  height: 70px;
   // float: initial;
-  padding: 5px, 15px;
+  padding: 15px;
+  font-size: large;
 }
 
 .entry-title{
-  width: 270px;
-  height: 90px;
+  width: $entry-content-width;
+  height: 126px;
   // float: initial;
   padding: 15px;
+  font-size: large;
+  word-wrap: break-word;
 }
 
 .entry-img{
-  width: 270px;
-  height: 160px;
+  width: $entry-content-width;
+  height: 120px;
   padding: 15px;
   img{
-    width: 240px;
-    height: 135px;
+    width: 120px;
+    height: 90px;
+    margin: 0px 65px;
   }
 }
 
  .entry-date{
-  width: 270px;
+  width: $entry-content-width;
   height: 45px;
   padding: 15px;
+  color: #999;
 }
 
-.entry-tags{
-  width: 270px;
-  height: 40px;
-  padding: 15px;
-}
+// .entry-tags{
+//   width: $entry-content-width;
+//   height: 90px;
+//   padding: 15px;
+// }
 
 hr{
   margin: 0px;
