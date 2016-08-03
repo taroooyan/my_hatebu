@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .entry-card{
   width: 310px;
-  height: 450px;
+  height: 470px;
   background: #fff;
   border: thin solid #ccc;
   margin: 13px;
@@ -38,19 +38,19 @@ $entry-content-width: 280px;
 
 .entry-img{
   width: $entry-content-width;
-  height: 120px;
+  height: 165px;
   padding: 15px;
   img{
-    width: 120px;
-    height: 90px;
-    margin: 0px 65px;
+    width: 180px;
+    height: 135px;
+    margin: 0px 35px;
   }
 }
 
  .entry-date{
   width: $entry-content-width;
   height: 45px;
-  padding: 15px;
+  padding: 0px 15px;
   color: #999;
 }
 

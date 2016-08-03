@@ -21,13 +21,12 @@
 
       <div class="entry-img">
         <%# origina img is 120x90 or 90x120%>
-        <%= entry[:entry_img] != nil ? image_tag(entry[:entry_img], :size => "120x90") : truncate(entry[:head_text], length: 60) %>
+        <%= entry[:entry_img] != nil ? image_tag(entry[:entry_img], :size => "180x135") : truncate(entry[:head_text], length: 60) %>
       </div>
 
       <div class="entry-date">
         <%= entry[:date] %>
       </div>
-      <hr>
 
       <!-- <div class="entry&#45;tags"> -->
       <!--   <% entry[:tags].each do |tag_name| %> -->
