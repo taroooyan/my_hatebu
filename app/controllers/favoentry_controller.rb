@@ -28,7 +28,7 @@ class FavoentryController < ApplicationController
         entry[:description] = item.description
         entry[:creator]     = item.dc_creator
         entry[:date]        = last_entry_date = item.dc_date.strftime("%Y-%m-%d %H:%M:%S")
-        entry[:favicon]   = item.content_encoded.scan(/<img src="(.+?)"/)[0].join
+        entry[:favicon]     = item.content_encoded.scan(/<img src="(.+?)"/)[0].join
 
         # This code is bad. There is a better way than it.
         entry[:head_text] = item.content_encoded.match(/<p>([^<]+?)<\/p>/).to_s.delete("</p>").delete("<p>")
