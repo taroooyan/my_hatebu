@@ -27,6 +27,9 @@ class FavoentryController < ApplicationController
         entry[:link]        = item.link
         entry[:description] = item.description
         entry[:creator]     = item.dc_creator
+        # url is http://cdn1.www.st-hatena.com/users/[2 char of head of username]/[username]/profile.gif
+        creator_img         = "http://cdn1.www.st-hatena.com/users/#{entry[:creator].slice(0..1)}/#{entry[:creator]}/profile.gif"
+        entry[:creator_img] = creator_img
         entry[:date]        = last_entry_date = item.dc_date.strftime("%Y-%m-%d %H:%M:%S")
         entry[:favicon]     = item.content_encoded.scan(/<img src="(.+?)"/)[0].join
 
