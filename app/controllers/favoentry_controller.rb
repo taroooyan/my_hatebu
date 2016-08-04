@@ -63,6 +63,7 @@ class FavoentryController < ApplicationController
     end
   end
 
+  # display more entry
   def add_show_entry
     user = User.find_by(cert: session[:cert])
     @entries = get_entry(Time.parse(user[:last_entry_date]).to_i)
