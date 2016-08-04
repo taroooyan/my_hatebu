@@ -5,13 +5,13 @@
   margin: 25px;
 }
 .entry{
-  width: 1544px;
+  width: 1244px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .entry-card{
-  width: 310px;
+  width: 250px;
   height: 470px;
   background: #fff;
   border: thin solid #ccc;
@@ -19,7 +19,7 @@
   padding: 15px;
 }
 
-$entry-content-width: 280px;
+$entry-content-width: 220px;
 
 .entry-bookmarkcount{
   width: $entry-content-width;
@@ -52,7 +52,7 @@ $entry-content-width: 280px;
   img{
     width: 180px;
     height: 135px;
-    margin: 0px 35px;
+    margin: 0px 5px;
   }
 }
 
