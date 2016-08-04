@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   require "digest/md5"
   # use authentication of hatena
   def login
-
     api_key    = ENV["API_KEY"]
     secret_key = ENV["SECRET_KEY"]
     api_sig    = Digest::MD5.hexdigest(secret_key + "api_key" + api_key)
@@ -15,7 +14,8 @@ class UsersController < ApplicationController
 
     # already session exists?
     unless session[:cert].blank?
-      render :text => session[:cert]
+      # render :text => session[:cert]
+      redirect_to :controller => "favoentry", :action => "show"
       return
     end
 
@@ -51,6 +51,7 @@ class UsersController < ApplicationController
     # create session
     session[:cert] = cert
 
-    render :text => u_info
+    # render :text => u_info
+    redirect_to :controller => "favoentry", :action => "show"
   end
 end
