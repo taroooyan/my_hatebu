@@ -1,8 +1,3 @@
-###My Hatebu
-## Description
-## Initialize
-## Usage
-## Demo
 
 ---
 ## 概要
