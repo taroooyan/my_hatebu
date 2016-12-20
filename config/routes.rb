@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'favoentry' => 'favoentry#show'
   post 'favoentry/add_show_entry'
 
+  get '*unmatched_route', to: 'favoentry#show'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
