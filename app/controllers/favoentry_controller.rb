@@ -13,6 +13,11 @@ class FavoentryController < ApplicationController
   def get_entry(final_time = Time.now.to_i)
     user = User.find_by(cert: session[:cert])
 
+    if user.nil?
+      redirect_to controller: 'users', action: 'login'
+      return
+    end
+
     url  = "http://b.hatena.ne.jp/#{user[:name]}/favorite.rss?until=#{final_time}"
     # rss server will check UserAgent. So we need to camouflage UserAgent
     opt = {}
